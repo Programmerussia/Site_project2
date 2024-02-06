@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title></title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+ <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script></head>
+    <body style="background: #a1c4fd; background: linear-gradient(to right, rgba(161,196,253,0.5), rgba(194,233,251,0.5));">
+        <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js" integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF" crossorigin="anonymous"></script>
+
+ <div id="carouselExampleSlidesOnly" class="carousel slide" data-bs-ride="carousel">
+  <div class="carousel-inner">
+    <div class="carousel-item active">
+        {% for cls in ['7' ] %}
+            <h3 style="text-align: center;">{{cls}} класс</h3>
+            <div class="container-sm justify-content-center">
+
+                    <table class="table table-bordered table-sm align-middle table-striped">
+                        <h5 style="text-align: center;">{{day}}</h5>
+                        <thead>
+                            <tr>
+                                <td></td>
+                                <td>Время </td>
+                                <td>Подгруппа 1</td>
+                                <td>Подгруппа 2</td>
+                                <td>Подгруппа 3</td>
+                                <td>Подгруппа 4</td>
+
+                                
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {% for time in ['9:00-9:45', '10:00-10:45', '11:00-11:45', '11:55-12:40', '13:00-13:45', '14:05-14:50', '15:00-15:45', '15:55-16:40']%}
+                                <tr>
+                                    <td></td>
+                                    <td>{{time}}</td>
+                                    
+                                    {% for group in ['1', '2','3','4'] %}
+
+                                    <td>{{ data[day][cls][group][time] }}</td>
+                                    {% endfor %}
+                                    
+                                </tr>
+                            {% endfor %}
+                        </tbody>
+                    </table>
+
+            </div>
+        {% endfor %}
+
+    </div>
+    <div class="carousel-item">
+        {% for cls in ['8', '9'] %}
+        
+        <h3 style="text-align: center;">{{cls}} класс</h3>
+        <div class="container-sm justify-content-center">
+
+            <table class="table table-bordered table-sm align-middle table-striped">
+                <h5 style="text-align: center;">{{day}}</h5>
+        <thead>
+            <tr>
+                <td></td>
+                <td>Время </td>
+                <td> Подгруппа 1</td>
+                <td> Подгруппа 2</td>
+               
+
+                
+            </tr>
+        </thead>
+        <tbody>
+            {% for time in ['9:00-9:45', '10:00-10:45', '11:00-11:45', '11:55-12:40', '13:00-13:45', '14:05-14:50', '15:00-15:45', '15:55-16:40']%}
+                <tr>
+                    <td></td>
+                    <td>{{time}}</td>
+                    {% for group in ['1', '2'] %}
+                        <td>{{ data[day][cls][group][time] }}</td>
+
+                    {% endfor %}
+                    
+                </tr>
+            {% endfor %}
+        </tbody>
+        </table>
+        {% endfor %}
+</div>
+    </div>
+
+
+</div>
+
+    <div class="carousel-item">
+      {% for cls in ['10', '11'] %}
+      <h3 style="text-align: center;">{{cls}} класс</h3>
+      <div class="container-sm justify-content-center">
+
+        <table class="table table-bordered table-sm align-middle table-striped">
+            <h5 style="text-align: center;">{{day}}</h5>
+      <thead>
+          <tr>
+              <td></td>
+              <td>Время </td>
+              <td> Подгруппа 1</td>
+              <td> Подгруппа 2</td>
+             
+
+              
+          </tr>
+      </thead>
+      <tbody>
+          {% for time in ['9:00-9:45', '10:00-10:45', '11:00-11:45', '11:55-12:40', '13:00-13:45', '14:05-14:50', '15:00-15:45', '15:55-16:40']%}
+              <tr>
+                  <td></td>
+                  <td>{{time}}</td>
+                  {% for group in ['1', '2'] %}
+                      <td>{{ data[day][cls][group][time] }}</td>
+
+                  {% endfor %}
+                  
+              </tr>
+          {% endfor %}
+      </tbody>
+      </table>
+      {% endfor %}
+    </div>
+    </div>
+</div>
+    </body>
+</html>
